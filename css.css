@@ -1,0 +1,793 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #0b0e0e;
+    color: #ddd;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+}
+
+
+header {
+    height: 50px;
+    background: #000000;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 5;
+
+    box-shadow: 0 12px 25px rgba(255, 255, 255, 0.06);
+}
+
+.header-content {
+    width: 800px;
+    margin: auto;
+
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: #bdbdbd;
+
+    font-family: "Baloo 2", sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+
+    margin-bottom: 15px;
+
+    letter-spacing: -2px;
+    line-height: 1;
+
+    transform: translateX(-38px);
+}
+
+.search {
+    width: 200px;
+    height: 30px;
+
+    margin-bottom: 15px;
+
+    transform: translateX(35px);
+
+    background-color: #222;
+    background-image: url("https://i.postimg.cc/7YBpzSdq/4.jpg");
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 14px 14px;
+
+    border: 1px solid #444;
+    border-radius: 4px;
+
+    color: white;
+
+    padding: 0 10px 0 32px;
+}
+
+.search::placeholder {
+    color: #777;
+}
+
+
+main {
+    width: 900px;
+    margin: 0 auto;
+    margin-top: 22px;
+    margin-bottom: 45px;
+
+    background-color: #27282b;
+    background-image: url("https://i.postimg.cc/9f5fZ3wJ/esciz.png");
+    background-repeat: no-repeat;
+    background-position: right -75px;
+    background-size: 100% auto;
+
+    min-height: 100vh;
+    padding: 18px 20px 40px;
+    border-radius: 10px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+.breadcrumbs {
+    color: #aaa;
+    font-size: 14px;
+
+    margin-bottom: 15px;
+}
+
+
+.movie-info {
+    display: flex;
+    gap: 18px;
+}
+
+.poster-block {
+    width: 180px;
+    flex-shrink: 0;
+}
+
+
+.poster {
+    width: 180px;
+    height: 270px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 6px;
+}
+
+
+.watch,
+.discuss,
+.voice {
+    text-decoration: none;
+    display: block;
+}
+
+.show-all {
+    text-decoration: none;
+    display: block;
+
+    font-size: 11px;
+    padding: 6px 12px;
+}
+
+
+.watch {
+    width: 100%;
+    height: 40px;
+
+    margin-top: 10px;
+
+    border-radius: 4px;
+
+    background: linear-gradient(
+        90deg,
+        #e41478,
+        #a315c9,
+        #e41478
+    );
+
+    background-size: 200% 100%;
+
+    color: white;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    padding-top: 11px;
+
+    text-decoration: none;
+
+    position: relative;
+
+    overflow: hidden;
+
+    animation: gradientMove 3s linear infinite;
+
+    transition: 0.2s;
+}
+
+@keyframes gradientMove {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+
+}
+
+.watch::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 50%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.25),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+
+    0% {
+        left: -100%;
+    }
+
+    50% {
+        left: 150%;
+    }
+
+    100% {
+        left: 150%;
+    }
+
+}
+
+.watch:hover {
+    opacity: 0.85;
+}
+
+
+.discuss {
+    width: 100%;
+    height: 36px;
+
+    margin-top: 5px;
+
+    border-radius: 3px;
+
+    background: #45464d;
+
+    color: #ddd;
+
+    text-align: center;
+
+    padding-top: 10px;
+}
+
+
+.information {
+    flex: 1;
+    position: relative;
+    top: 0;
+    left: 10px;
+}
+
+h1 {
+    font-size: 21px;
+
+    color: #eee;
+
+    margin: 0 0 12px;
+}
+
+.ratings {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.age-rating {
+    background: #555;
+
+    padding: 3px 5px;
+}
+
+.star {
+    color: #ffd400;
+
+    font-size: 20px;
+}
+
+.imdb {
+    background: #eee;
+
+    color: #222;
+
+    font-weight: bold;
+
+    padding: 2px 4px;
+}
+
+.details {
+    display: grid;
+    grid-template-columns: 145px 1fr;
+    row-gap: 6px;
+    font-size: 13px;
+}
+
+.label {
+    color: #888;
+}
+
+.information h2 {
+    font-size: 16px;
+    margin-top: 12px;
+    margin-bottom: 5px;
+}
+
+.voice {
+    background: #46474e;
+    color: #ddd;
+    padding: 6px 15px;
+    border-radius: 3px;
+    width: max-content;
+}
+
+
+.seasons {
+    margin-top: 25px;
+}
+
+.yellow-title {
+    color: #ffd400;
+
+    font-size: 17px;
+    margin-top: 4px;
+
+    margin-bottom: 18px;
+}
+
+.season-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+
+.season {
+    height: 108px;
+
+    border-radius: 5px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: block;
+
+    text-decoration: none;
+
+    color: white;
+}
+
+.season-image {
+    width: 100%;
+    height: 108px;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: 0.2s;
+}
+
+.season:hover .season-image {
+    transform: scale(1.05);
+}
+
+.season-overlay {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.year {
+    position: absolute;
+
+    top: 7px;
+    left: 8px;
+
+    font-size: 12px;
+}
+
+.season-number {
+    position: absolute;
+
+    top: 35px;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 17px;
+}
+
+.season-number b {
+    font-size: 27px;
+}
+
+.episodes {
+    position: absolute;
+
+    bottom: 8px;
+    left: 8px;
+
+    font-size: 11px;
+}
+
+
+.description {
+    margin-top: 25px;
+
+    border-top: 1px solid #333;
+
+    padding-top: 18px;
+}
+
+.description h2,
+.similar h2 {
+    font-size: 17px;
+
+    color: #eee;
+
+    margin-bottom: 18px;
+}
+
+.description p {
+    color: #c4c4c4;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+
+    margin-bottom: 14px;
+}
+
+
+.similar {
+    margin-top: 60px;
+}
+
+.similar-grid {
+    display: grid;
+
+    grid-template-columns: repeat(6, 1fr);
+
+    gap: 10px;
+}
+
+.similar-card {
+    text-decoration: none;
+
+    color: #ddd;
+
+    min-width: 0;
+}
+
+.similar-poster {
+    width: 100%;
+    height: 175px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 5px;
+
+    transition: 0.2s;
+}
+
+.similar-card:hover .similar-poster {
+    transform: scale(1.03);
+}
+
+.similar-card b {
+    display: block;
+
+    font-size: 12px;
+
+    margin-top: 7px;
+}
+
+.similar-card span {
+    display: block;
+
+    color: #777;
+
+    font-size: 11px;
+
+    margin-top: 5px;
+}
+
+
+.show-all {
+    margin-top: 20px;
+
+    background: #292a2d;
+
+    border: 1px solid #555;
+
+    color: #ddd;
+
+    padding: 7px 14px;
+
+    border-radius: 3px;
+
+    width: max-content;
+}
+
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.footer-logo {
+    display: inline-block;
+
+    color: #ddd;
+
+    font-size: 24px;
+    font-weight: 700;
+
+    margin-bottom: 10px;
+
+    text-decoration: none;
+}
+
+.footer-logo:hover {
+    color: white;
+    text-decoration: none;
+}
+
+
+.footer-links {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    font-size: 12px;
+}
+
+.footer-links a {
+    color: #ddd;
+
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: white;
+
+    text-decoration: none;
+}
+
+
+@media (max-width: 850px) {
+
+    .header-content {
+        width: 95%;
+    }
+
+    main {
+        width: 95%;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .movie-info {
+        flex-direction: column;
+    }
+
+    .poster-block {
+        width: 200px;
+    }
+
+    .poster {
+        width: 200px;
+    }
+
+    .season-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .similar-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .similar-poster {
+        height: 140px;
+    }
+}
+
+
+h1,
+h2,
+.logo,
+.footer-logo {
+    font-family: "Roboto", sans-serif;
+}
+
+h1 {
+    font-weight: 700;
+}
+
+h2 {
+    font-weight: 500;
+}
+
+.logo {
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+
+main {
+    position: relative;
+    overflow: hidden;
+}
+
+main::after {
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    right: -100px;
+    top: 20px;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255, 255, 255, 0.035) 0%,
+            rgba(255, 255, 255, 0.015) 35%,
+            transparent 70%
+        );
+
+    border-radius: 50%;
+
+    transform: rotate(-25deg);
+
+    pointer-events: none;
+}
+
+.seasons {
+    background: #202125;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.age-rating {
+    background: #000000;
+    border-radius: 6px;
+    padding: 4px 8px;
+    color: #ececec;
+}
+
+.header {
+    position: relative;
+    z-index: 2;
+    background: #000;
+}
+
+.header::after {
+    content: "";
+    position: absolute;
+
+    left: 5%;
+    right: 5%;
+    bottom: -18px;
+
+    height: 25px;
+
+    background: rgba(255, 255, 255, 0.18);
+    filter: blur(18px);
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+.logo-image {
+    width: 120px;
+    height: auto;
+    display: block;
+}
+
+.rating-image {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    display: block;
+}
+
+.football-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.football-image {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    display: block;
+}
+
+.imdb-image {
+    width: 35px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.footer-arrow {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+    display: block;
+    margin-left: -18px;
+}
+
+.footer-logo-image {
+    width: 120px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.similar-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+}
+
+.similar-card {
+    text-decoration: none;
+    color: #ddd;
+    min-width: 0;
+}
+
+.similar-poster {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    border-radius: 5px;
+}
+
+.similar-card b {
+    display: block;
+    font-size: 12px;
+    line-height: 1.25;
+    margin-top: 7px;
+    color: #ddd;
+}
+
+.similar-card span {
+    display: block;
+    color: #777;
+    font-size: 11px;
+    line-height: 1.3;
+    margin-top: 4px;
+}
